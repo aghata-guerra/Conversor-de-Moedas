@@ -29,7 +29,7 @@ form.onsubmit = () => {
             break
     }
 }
-
+//
 function convertCurrency(amount, price, symbol){
 
     try {
