@@ -7,6 +7,7 @@ const amount = document.getElementById("amount")
 const currency = document.getElementById("currency")
 const footer = document.querySelector("main footer")
 const description = document.getElementById("description")
+const result = document.getElementById("result")
 
 amount.addEventListener("input", () => {
     const hasCgaractersRegex = /\D+/g
@@ -33,8 +34,12 @@ form.onsubmit = () => {
 function convertCurrency(amount, price, symbol){
 
     try {
-        description.textContent = `${symbol} 1 = ${price}`;
+        description.textContent = `${symbol} 1 = ${formatCurrancyBRL(price)}`;
         footer.classList.add("show-result")
+
+        let total = amount * price
+        total = formatCurrancyBRL(total).replace("R$", "")
+        result.textContent = `${total} Reais`
 
     } 
         catch (error) {
@@ -44,4 +49,12 @@ function convertCurrency(amount, price, symbol){
         alert("Não foi possivel converter. Tente novamente masi tarde.")
     }
 
+        }
+
+        function formatCurrancyBRL(value){
+
+            return Number(value).toLocaleString("pt-BR",{
+                style: "currency",
+                currency: "BRL",
+            })
         }
