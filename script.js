@@ -1,6 +1,6 @@
-const USD = 5;
-const EUR = 4;
-const GBP = 3;
+const USD = 4.99;
+const EUR = 5.88;
+const COP = 0.0014;
 
 const form = document.querySelector("form")
 const amount = document.getElementById("amount")
@@ -25,8 +25,8 @@ form.onsubmit = () => {
         case "EUR":
             convertCurrency(amount.value, EUR, "€")
             break
-        case "GBP":
-            convertCurrency(amount.value, GBP, "£")
+        case "COP":
+            convertCurrency(amount.value, COP, "$")
             break
     }
 }
